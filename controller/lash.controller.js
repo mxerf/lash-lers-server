@@ -69,7 +69,7 @@ class LashController {
     // await category.save()
     const categories = await Category.findAll()
     if (!categories) return next(ApiError.badRequest("Категории не нашлись, возможно что-то сломалось"))
-    return res.json({message: `Категория "${value}" успешно добавлена`}, categories)
+    return res.json({message: `Категория "${value}" успешно добавлена`, categories})
   }
 
   async deleteCategory(req, res, next) {
