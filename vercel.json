@@ -1,12 +1,20 @@
 {
   "version": 2,
   "name": "lash_lers_server",
-  "build": {
-    "src": "index.js",
-    "use": "@vercel/node"
-  },
-  "routes": [{
-    "src": "/(.*)",
-    "dest": "index.js"
-  }]
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "./index.js"
+    },
+    {
+      "src": "/api/lashes/category",
+      "dest": "./index.js"
+    }
+  ]
 }

@@ -6,6 +6,7 @@ const fileUpload = require('express-fileupload')
 const path = require('path')
 const cors = require('cors')
 const router = require('./routes/router')
+const route = require('express')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 const PORT = process.env.PORT
@@ -18,6 +19,9 @@ app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', router)
+app.get('/', (req, res) => {
+  return res.json({message: "its okay"})
+})
 
 //errors
 
@@ -25,7 +29,7 @@ const start = async () => {
   try {
     await sequelize.authenticate()
     await sequelize.sync()
-    app.listen(PORT, () => {console.log(`server started on port ${PORT}`)})
+    app.listen(4000, () => {console.log(`server started on port 4000`)})
   } catch (e) {
     console.log(e);
   }
