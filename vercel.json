@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "name": "lash_lers_server",
+  "builds": [
+    {
+      "src": "/(.*)",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ]
+}
